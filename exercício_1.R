@@ -1,6 +1,6 @@
 
 
-library(dplyr)
+library(car)
 
 #Distribuição normal
 dist_normal_1 <- rnorm(600,1)
@@ -31,16 +31,17 @@ dist_normal_1_central <- dist_normal_1 - mean(dist_normal_1)
 dist_normal_2_central <- dist_normal_2 - mean(dist_normal_2)
 
 
-#Troca dos 0 por 1 na variável de contagem
+#Trocar dos 0 por 1 na variável de contagem
 
 dist_poisson1 <- ifelse(dist_poisson == 0, 1 , )
 
 
+# data.frame com amostra de 100
+
 banco <- data.frame(dist_bi, dist_bi_neg, dist_normal_1, dist_normal_2, dist_poisson, dist_quali)
 
-banco2 <- replicate(100, sample(banco, 6, replace = TRUE))
+banco2 <- some(banco, 100, replace = FALSE) #useia função some do pacote car
 
-sample(dist_normal_1, 100, replace = FALSE)
 
 
 
